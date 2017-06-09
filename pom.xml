@@ -10,12 +10,6 @@
 
 
     <dependencies>
-        <dependency>
-            <groupId>com.amazonaws.scala</groupId>
-            <artifactId>parent-pom</artifactId>
-            <version>0.0.1</version>
-        </dependency>
-
         <!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk -->
         <dependency>
             <groupId>com.amazonaws</groupId>

@@ -3,8 +3,7 @@ package com.amit;
 
 import com.amazonaws.AmazonClientException;
 import com.amazonaws.AmazonServiceException;
-import com.amazonaws.auth.AWSCredentials;
-import com.amazonaws.auth.profile.ProfileCredentialsProvider;
+import com.amazonaws.auth.PropertiesFileCredentialsProvider;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
@@ -20,7 +19,9 @@ public class S3Sample {
 
     public static void main(String[] args) throws IOException {
 
-        AmazonS3 s3 = AmazonS3ClientBuilder.standard().withRegion(Regions.AP_SOUTH_1).build();
+        AmazonS3 s3 = AmazonS3ClientBuilder.standard()
+                                           .withCredentials(new PropertiesFileCredentialsProvider("/Users/amitjain/credentials.properties"))
+                                           .withRegion(Regions.AP_SOUTH_1).build();
 
         String bucketName = "my-first-s3-bucket-" + UUID.randomUUID();
         String key = "MyObjectKey";
